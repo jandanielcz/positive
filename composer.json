@@ -1,0 +1,26 @@
+{
+    "name": "jandanielcz/positive",
+    "description": "Image feed website",
+    "type": "project",
+    "require": {
+        "league/container": "^4.2",
+        "league/plates": "^3.5",
+        "league/route": "^5.1",
+        "narrowspark/http-emitter": "^2.0",
+        "laminas/laminas-diactoros": "^2.24",
+        "laminas/laminas-httphandlerrunner": "^2.5"
+    },
+    "license": "WTFPL",
+    "autoload": {
+        "psr-4": {
+            "Jandanielcz\\Positive\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jan Daniel Dolezal",
+            "email": "dan@jandaniel.cz"
+        }
+    ],
+    "minimum-stability": "stable"
+}
