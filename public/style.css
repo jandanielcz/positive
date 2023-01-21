@@ -1,0 +1,75 @@
+:root {
+    --fontColor: #111;
+    --fontHiColor: #286c38;
+}
+
+body {
+    margin: 0;
+    font-family: 'Georgia', 'Baskerville Old Face', serif;
+    color: var(--fontColor);
+}
+
+a {
+    text-decoration: none;
+    color: var(--fontColor);
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--fontHiColor);
+}
+
+header h1 {
+    font-weight: 400;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+header h2 {
+    font-weight: 400;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    margin: 0 1rem;
+    padding: .2rem .7rem;
+    border: 1px solid var(--fontColor);
+
+}
+
+section {
+    max-width: 640px;
+    margin: 2rem auto;
+}
+
+article {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 6rem auto;
+    align-items: baseline;
+}
+
+article p {
+    margin: 0;
+}
+
+article aside p {
+    align-self: baseline;
+}
+
+article > p {
+    font-size: 2rem;
+    line-height: 2.6rem;
+}
+
+article figure {
+    grid-column: 1/3;
+}

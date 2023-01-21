@@ -1,6 +1,8 @@
 vendor
 .idea
 content/posts.listofjsons
+content/cache
+content/images
 
 conf/*.json5
 !conf/*.defaults.json5

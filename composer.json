@@ -8,7 +8,11 @@
         "league/route": "^5.1",
         "laminas/laminas-diactoros": "^2.24",
         "laminas/laminas-httphandlerrunner": "^2.5",
-        "colinodell/json5": "^2.3"
+        "colinodell/json5": "^2.3",
+        "league/glide": "^2.2",
+        "ext-fileinfo": "*",
+        "ext-exif": "*",
+        "ext-gd": "*"
     },
     "license": "WTFPL",
     "autoload": {
