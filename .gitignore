@@ -1,2 +1,6 @@
 vendor
 .idea
+content/posts.listofjsons
+
+conf/*.json5
+!conf/*.defaults.json5

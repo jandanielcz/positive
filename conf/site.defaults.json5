@@ -1,0 +1,7 @@
+{
+  site: {
+    title: 'Site name',
+    URL: '/',
+    subtitle: 'Be calm.'
+  }
+}
