@@ -11,6 +11,6 @@ class Posts
     public function loadAll(): array
     {
         $c = file($this->pathToList);
-        return array_map('json_decode', $c);
+        return array_map([Post::class, 'fromJson'], $c);
     }
 }

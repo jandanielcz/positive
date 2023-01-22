@@ -1,6 +1,9 @@
-<article>
+<?php
+/** @var \Jandanielcz\Positive\Post $post */
+?>
+<article id="<?= $post->id() ?>">
     <aside>
-        <p class="day"><?= $this->e($post->day) ?></p>
+        <p class="day"><?= $post->day->format('Y-m-d') ?></p>
     </aside>
     <p>
         <?= $this->e($post->text) ?>
