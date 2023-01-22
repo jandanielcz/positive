@@ -13,7 +13,11 @@
             <source media="(max-width: 480px)" srcset="/image/<?= $post->picture ?>?w=480&q=90" />
             <source type="image/avif" srcset="/image/<?= $post->picture ?>?w=640&q=90&fm=avif" />
             <source type="image/webp" srcset="/image/<?= $post->picture ?>?w=640&q=90&fm=webp" />
-            <img src="/image/<?= $post->picture ?>?w=640&q=90" alt="Photo" <?= ($lazy) ? 'loading="lazy"' : '' ?>>
+            <img src="/image/<?= $post->picture ?>?w=640&q=90" alt="Photo" loading="lazy"
+                data-avif="/image/<?= $post->picture ?>?q=90&fm=avif"
+                data-webp="/image/<?= $post->picture ?>?q=90&fm=webp"
+                data-jpg="/image/<?= $post->picture ?>?q=90&fm=jpg"
+            >
         </picture>
 
     </figure>
