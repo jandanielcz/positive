@@ -18,7 +18,7 @@ class ImageController
     public function get(ServerRequestInterface $request): ResponseInterface
     {
         $path = $request->getUri()->getPath();
-        var_dump($path);
-        return $this->glide->getImageResponse('2023/sampleA.jpg', $_GET);
+        $imagePath = str_replace('/image/', '', $path);
+        return $this->glide->getImageResponse($imagePath, $_GET);
     }
 }

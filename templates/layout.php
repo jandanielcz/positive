@@ -7,6 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $configuration->get('site::title') ?></title>
     <link rel="stylesheet" href="/style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('body').addEventListener('click', (event) => {
+                if (event.target.matches('img')) {
+                    console.log('open modal')
+                }
+            })
+        })
+    </script>
 </head>
 <body>
     <div id="W">

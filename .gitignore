@@ -6,3 +6,4 @@ content/images
 
 conf/*.json5
 !conf/*.defaults.json5
+Caddyfile
