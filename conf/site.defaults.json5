@@ -2,6 +2,9 @@
   site: {
     title: 'Site name',
     URL: '/',
-    subtitle: 'Be calm.'
+    subtitle: 'Be calm.',
+    glidekey: null,
+    author: 'Bob',
+    authorEmail: 'bob@example.com'
   }
 }

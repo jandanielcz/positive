@@ -57,9 +57,9 @@
             </h2>
         </header>
         <nav>
-            <a href="/add">+</a>
-            <a href="/feed">feed</a>
-            <a href="https://github.com/jandanielcz/positive">opensourced</a>
+            <span><a href="/add">add content</a></span>
+            <span><a href="/atom">atom</a>/<a href="/rss2">rss2</a></span>
+            <span><a href="https://github.com/jandanielcz/positive">opensourced</a></span>
         </nav>
         <section>
             <?=$this->section('content')?>

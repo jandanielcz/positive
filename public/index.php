@@ -22,6 +22,11 @@ $router->map('GET', '/image/{year}/{path}',
         $controller = $c->get(\Jandanielcz\Positive\ImageController::class);
         return $controller->get($request, $args['year'], $args['path']);
     });
+$router->map('GET', '/rss2',
+    function (ServerRequestInterface $request) use ($c): ResponseInterface  {
+        $controller = $c->get(\Jandanielcz\Positive\FeedController::class);
+        return $controller->rss2($request);
+    });
 $router->map('GET', '/',
     function (ServerRequestInterface $request) use ($c): ResponseInterface  {
         $controller = $c->get(\Jandanielcz\Positive\IndexController::class);

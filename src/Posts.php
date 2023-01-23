@@ -11,6 +11,9 @@ class Posts
         protected UrlBuilder $urlBuilder
     ){}
 
+    /**
+     * @return Post[]
+     */
     public function loadAll(): array
     {
         $c = file($this->pathToList);

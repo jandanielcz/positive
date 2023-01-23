@@ -12,7 +12,8 @@
         "league/glide": "^2.2",
         "ext-fileinfo": "*",
         "ext-exif": "*",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "p3k/picofeed": "^0.1.40"
     },
     "license": "WTFPL",
     "autoload": {
