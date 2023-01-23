@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $configuration->get('site::title') ?></title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="alternate" type="application/rss+xml" href="/rss2">
+    <link rel="alternate" type="application/atom+xml" href="/atom">
     <script>
 
         const removeListeners = () => {

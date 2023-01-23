@@ -17,6 +17,7 @@ a {
 
 a:hover {
     text-decoration: underline;
+    text-decoration-thickness: 2px;
     color: var(--fontHiColor);
 }
 
@@ -36,14 +37,15 @@ header h2 {
 }
 
 nav {
-    margin-top: 2rem;
+    max-width: 640px;
+    margin: 2rem auto;
     text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--fontColor);
 }
 
 nav span {
     margin: 0 1rem;
-    padding: .2rem .7rem;
-    border: 1px solid var(--fontColor);
 
 }
 
