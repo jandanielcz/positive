@@ -2,10 +2,13 @@
 
 namespace Jandanielcz\Positive;
 
+use League\Glide\Urls\UrlBuilder;
+
 class Posts
 {
     public function __construct(
-        protected string $pathToList
+        protected string $pathToList,
+        protected UrlBuilder $urlBuilder
     ){}
 
     public function loadAll(): array

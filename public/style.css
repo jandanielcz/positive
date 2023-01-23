@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: 'Georgia', 'Baskerville Old Face', serif;
     color: var(--fontColor);
-    background-color: hsl(0, 0%, 60%);
+    background-color: hsl(42, 39%, 70%);
 }
 
 a {

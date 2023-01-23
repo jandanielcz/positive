@@ -20,7 +20,7 @@ $router = $c->get(Router::class);
 $router->map('GET', '/image/{year}/{path}',
     function (ServerRequestInterface $request, array $args) use ($c): ResponseInterface  {
         $controller = $c->get(\Jandanielcz\Positive\ImageController::class);
-        return $controller->get($request, $args['year'], $args['name']);
+        return $controller->get($request, $args['year'], $args['path']);
     });
 $router->map('GET', '/',
     function (ServerRequestInterface $request) use ($c): ResponseInterface  {

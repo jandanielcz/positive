@@ -1,5 +1,9 @@
 <?php
-/** @var \Jandanielcz\Positive\Post $post */
+/**
+ * @var \Jandanielcz\Positive\Post $post
+ * @var \League\Glide\Urls\UrlBuilder $urlBuilder
+ */
+
 ?>
 <article id="<?= $post->id() ?>">
     <aside>
@@ -11,15 +15,15 @@
     <figure>
 
         <picture>
-            <source media="(max-width: 480px)" type="image/avif" srcset="/image/<?= $post->picture ?>?w=480&q=90&fm=avif" />
-            <source media="(max-width: 480px)" type="image/webp" srcset="/image/<?= $post->picture ?>?w=480&q=90&fm=webp" />
-            <source media="(max-width: 480px)" srcset="/image/<?= $post->picture ?>?w=480&q=90" />
-            <source type="image/avif" srcset="/image/<?= $post->picture ?>?w=640&q=90&fm=avif" />
-            <source type="image/webp" srcset="/image/<?= $post->picture ?>?w=640&q=90&fm=webp" />
-            <img src="/image/<?= $post->picture ?>?w=640&q=90" alt="Photo" loading="lazy"
-                data-avif="/image/<?= $post->picture ?>?q=90&fm=avif"
-                data-webp="/image/<?= $post->picture ?>?q=90&fm=webp"
-                data-jpg="/image/<?= $post->picture ?>?q=90&fm=jpg"
+            <source media="(max-width: 480px)" type="image/avif" srcset="<?= $urlBuilder->getUrl($post->picture, ['fm' => 'avif', 'q' => 90, 'w' => 480]) ?>" />
+            <source media="(max-width: 480px)" type="image/webp" srcset="<?= $urlBuilder->getUrl($post->picture, ['fm' => 'webp', 'q' => 90, 'w' => 480]) ?>" />
+            <source media="(max-width: 480px)" srcset="<?= $urlBuilder->getUrl($post->picture, ['fm' => 'jpg', 'q' => 90, 'w' => 480]) ?>" />
+            <source type="image/avif" srcset="<?= $urlBuilder->getUrl($post->picture, ['fm' => 'avif', 'q' => 90, 'w' => 640]) ?>" />
+            <source type="image/webp" srcset="<?= $urlBuilder->getUrl($post->picture, ['fm' => 'webp', 'q' => 90, 'w' => 640]) ?>" />
+            <img src="<?= $urlBuilder->getUrl($post->picture, ['w' => 640, 'q' => 90]) ?>" alt="Photo" loading="lazy"
+                data-avif="<?= $urlBuilder->getUrl($post->picture, ['fm' => 'avif', 'q' => 90]) ?>"
+                data-webp="<?= $urlBuilder->getUrl($post->picture, ['fm' => 'webp', 'q' => 90]) ?>"
+                data-jpg="<?= $urlBuilder->getUrl($post->picture, ['fm' => 'jpg', 'q' => 90]) ?>"
             >
         </picture>
 
