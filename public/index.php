@@ -27,6 +27,11 @@ $router->map('GET', '/rss2',
         $controller = $c->get(\Jandanielcz\Positive\FeedController::class);
         return $controller->rss2($request);
     });
+$router->map('GET', '/atom',
+    function (ServerRequestInterface $request) use ($c): ResponseInterface  {
+        $controller = $c->get(\Jandanielcz\Positive\FeedController::class);
+        return $controller->atom($request);
+    });
 $router->map('GET', '/',
     function (ServerRequestInterface $request) use ($c): ResponseInterface  {
         $controller = $c->get(\Jandanielcz\Positive\IndexController::class);
