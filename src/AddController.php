@@ -51,8 +51,8 @@ class AddController
         $picture = $request->getUploadedFiles()['picture'];
 
 
-        $this->posts->add($day, $text, $picture);
+        $picturePath = $this->posts->add($day, $text, $picture);
 
-        return (new Response)->withStatus(302)->withAddedHeader('Location', '/');
+        return (new Response)->withStatus(302)->withAddedHeader('Location', '/single/'.$picturePath);
     }
 }

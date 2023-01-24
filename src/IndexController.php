@@ -29,4 +29,20 @@ class IndexController
         );
         return $response;
     }
+
+    public function single(ServerRequestInterface $request): ResponseInterface
+    {
+        $path = $request->getUri()->getPath();
+        $imagePath = str_replace('/image/', '', $path);
+        $response = new Response();
+        $post = $this->posts->loadByPicture($imagePath);
+        $response->getBody()->write(
+            $this->engine->render('single', [
+                'configuration' => $this->configuration,
+                'post' => $post,
+                'urlBuilder' => $this->urlBuilder
+            ])
+        );
+        return $response;
+    }
 }

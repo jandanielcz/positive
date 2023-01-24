@@ -55,6 +55,11 @@ $router->map('GET', '/logout',
         $controller = $container->get(\Jandanielcz\Positive\LoginController::class);
         return $controller->handleLogout($request);
     });
+$router->map('GET', '/single/{year}/{path}',
+    function (ServerRequestInterface $request) use ($container): ResponseInterface  {
+        $controller = $container->get(\Jandanielcz\Positive\IndexController::class);
+        return $controller->single($request);
+    });
 $router->map('GET', '/',
     function (ServerRequestInterface $request) use ($container): ResponseInterface  {
         $controller = $container->get(\Jandanielcz\Positive\IndexController::class);

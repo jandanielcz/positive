@@ -9,6 +9,13 @@
     user: {
       login: 'User',
       password: null
+    },
+    picture: {
+      sizes: {
+        small: 480,
+        list: 640,
+        full: 1600
+      }
     }
   }
 }

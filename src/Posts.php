@@ -22,7 +22,19 @@ class Posts
         return array_map([Post::class, 'fromJson'], $c);
     }
 
-    public function add(\DateTimeInterface $day, string $text, UploadedFileInterface $picture): void
+    public function loadByPicture(string $picturePath): ?Post
+    {
+        $c = file($this->pathToList);
+        array_filter($c, function($line) use ($picturePath) {
+            return str_contains($line, $picturePath);
+        });
+        if (count($c) < 1) {
+            return null;
+        }
+        return array_map([Post::class, 'fromJson'], $c)[0];
+    }
+
+    public function add(\DateTimeInterface $day, string $text, UploadedFileInterface $picture): string
     {
         $year = $day->format('Y');
         if (!file_exists($this->pathToPictures . '/' . $year)) {
@@ -38,5 +50,6 @@ class Posts
         ], JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES ) . PHP_EOL;
 
         file_put_contents($this->pathToList, $newLine . file_get_contents($this->pathToList));
+        return $newPath;
     }
 }
