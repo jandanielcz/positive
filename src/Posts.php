@@ -91,6 +91,6 @@ class Posts
         }
         $page = floor($idx / $this->configuration->get('site::pageSize')) + 1;
 
-        return sprintf('/?page=%s#%s', $page, $post->id());
+        return sprintf('%s?page=%s#%s', $this->configuration->get('site::URL'), $page, $post->id());
     }
 }
