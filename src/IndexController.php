@@ -19,12 +19,21 @@ class IndexController
 
     public function index(ServerRequestInterface $request): ResponseInterface
     {
+        $pagination = $this->posts->buildPagination();
+        if (isset($request->getQueryParams()['page'])) {
+            $page = (int)$request->getQueryParams()['page'];
+        } else {
+            $page = $pagination['max'];
+        }
         $response = new Response();
+        $pagination['current'] = $page;
+
         $response->getBody()->write(
             $this->engine->render('index', [
                 'configuration' => $this->configuration,
-                'posts' => $this->posts->loadAll(),
-                'urlBuilder' => $this->urlBuilder
+                'posts' => $this->posts->loadAll($page),
+                'urlBuilder' => $this->urlBuilder,
+                'pagination' => $pagination
             ])
         );
         return $response;

@@ -66,9 +66,14 @@
                 <span><a href="/logout">logout</a></span>
             <?php endif; ?>
         </nav>
+
+        <?= $this->insert('pagination', ['pagination' => $pagination ?? null]) ?>
+
         <section>
             <?=$this->section('content')?>
         </section>
+
+        <?= $this->insert('pagination', ['pagination' => $pagination ?? null]) ?>
     </div>
     <div id="M" class="hidden">
         <div class="frame">

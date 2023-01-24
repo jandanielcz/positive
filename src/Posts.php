@@ -10,15 +10,21 @@ class Posts
     public function __construct(
         protected string $pathToList,
         protected string $pathToPictures,
-        protected UrlBuilder $urlBuilder
+        protected UrlBuilder $urlBuilder,
+        protected Configuration $configuration
     ){}
 
     /**
      * @return Post[]
      */
-    public function loadAll(): array
+    public function loadAll(?int $page = null): array
     {
         $c = file($this->pathToList);
+        if ($page === null) {
+            return array_map([Post::class, 'fromJson'], $c);
+        }
+        $pageSize = (int)$this->configuration->get('site::pageSize');
+        $c = array_slice($c, ($page - 1) * $pageSize, $pageSize);
         return array_map([Post::class, 'fromJson'], $c);
     }
 
@@ -49,7 +55,35 @@ class Posts
             'picture' => $newPath
         ], JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES ) . PHP_EOL;
 
-        file_put_contents($this->pathToList, $newLine . file_get_contents($this->pathToList));
+        file_put_contents($this->pathToList, file_get_contents($this->pathToList) . $newLine);
         return $newPath;
+    }
+
+    public function buildPagination(?int $currentPage = null): array
+    {
+        $c = file($this->pathToList);
+        $count = count($c);
+        $pageSize = (int)$this->configuration->get('site::pageSize');
+        $pages = (int)ceil($count / $pageSize);
+
+        return [
+            'max' => $pages,
+            'current' => ($currentPage == null) ? $pages : $currentPage
+        ];
+    }
+
+    public function findUrlFor(Post $post): string
+    {
+        $lines = file($this->pathToList);
+        $pos = -1;
+        foreach ($lines as $idx => $line) {
+            if (str_contains($line, $post->picture)) {
+                $pos = $idx;
+                break;
+            }
+        }
+        $page = floor($idx / $this->configuration->get('site::pageSize')) + 1;
+
+        return sprintf('/?page=%s#%s', $page, $post->id());
     }
 }

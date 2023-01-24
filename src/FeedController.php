@@ -34,7 +34,7 @@ class FeedController
             $feedBuilder
                 ->withItem(Rss20ItemBuilder::create($feedBuilder)
                     ->withTitle($post->text)
-                    ->withUrl($this->configuration->get('site::URL') . '#' . $post->id())
+                    ->withUrl($this->posts->findUrlFor($post))
                     ->withAuthor($this->configuration->get('site::author'), $this->configuration->get('site::authorEmail'))
                     ->withPublishedDate(\DateTime::createFromImmutable($post->day))
                     ->withSummary($post->text)
@@ -64,7 +64,7 @@ class FeedController
             $feedBuilder
                 ->withItem(AtomItemBuilder::create($feedBuilder)
                     ->withTitle($post->text)
-                    ->withUrl($this->configuration->get('site::URL') . '#' . $post->id())
+                    ->withUrl($this->posts->findUrlFor($post))
                     ->withAuthor($this->configuration->get('site::author'), $this->configuration->get('site::authorEmail'))
                     ->withPublishedDate(\DateTime::createFromImmutable($post->day))
                     ->withUpdatedDate(\DateTime::createFromImmutable($post->day))

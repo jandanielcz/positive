@@ -43,7 +43,8 @@ class ContainerBuilder
         $c->add(\Jandanielcz\Positive\Posts::class)
             ->addArgument(self::BASEDIR . 'content/posts.listofjsons')
             ->addArgument(self::BASEDIR . 'content/images')
-            ->addArgument($c->get(\League\Glide\Urls\UrlBuilder::class));
+            ->addArgument($c->get(\League\Glide\Urls\UrlBuilder::class))
+            ->addArgument($c->get(Configuration::class));
         $c->add(\League\Glide\Server::class, function() {
             $server = \League\Glide\ServerFactory::create([
                 'source' =>  self::BASEDIR . 'content/images',

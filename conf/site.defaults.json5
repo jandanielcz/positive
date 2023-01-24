@@ -16,6 +16,7 @@
         list: 640,
         full: 1600
       }
-    }
+    },
+    pageSize: 3
   }
 }
