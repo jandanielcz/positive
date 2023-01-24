@@ -35,7 +35,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('body').addEventListener('click', (event) => {
-                if (event.target.matches('img')) {
+                if (event.target.matches('img') && !event.target.classList.contains('inModal')) {
                     const modal = document.getElementById('M')
                     fillModal(modal, event.target)
                     modal.classList.remove('hidden')
@@ -80,7 +80,7 @@
             <picture>
                 <source type="image/avif" srcset="" />
                 <source type="image/webp" srcset="" />
-                <img src="" alt="Photo">
+                <img class="inModal" src="" alt="Photo">
             </picture>
         </div>
     </div>
