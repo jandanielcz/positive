@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;
     color: var(--fontColor);
-    background-color: hsl(42, 39%, 70%);
+    background-color: hsl(108, 20%, 70%);
 }
 
 a {
@@ -76,7 +76,12 @@ article > p {
 
 figure {
 
+    cursor: pointer;
     margin: 1rem 0 0 0;
+}
+
+figure img {
+    max-width: 100%;
 }
 
 #M {
