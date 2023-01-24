@@ -9,6 +9,9 @@ class Configuration
         protected array $configs,
     ){
         foreach ($this->configs as $config) {
+            if (!file_exists($config)) {
+                continue;
+            }
             $newValues = json5_decode(
                 file_get_contents($config),
                 true

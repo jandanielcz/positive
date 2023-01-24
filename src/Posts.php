@@ -12,7 +12,14 @@ class Posts
         protected string $pathToPictures,
         protected UrlBuilder $urlBuilder,
         protected Configuration $configuration
-    ){}
+    ){
+        if (!file_exists($this->pathToList)) {
+            touch($this->pathToList);
+        }
+        if (!file_exists($this->pathToPictures)) {
+            mkdir($this->pathToPictures);
+        }
+    }
 
     /**
      * @return Post[]

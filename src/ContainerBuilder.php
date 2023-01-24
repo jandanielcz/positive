@@ -46,6 +46,12 @@ class ContainerBuilder
             ->addArgument($c->get(\League\Glide\Urls\UrlBuilder::class))
             ->addArgument($c->get(Configuration::class));
         $c->add(\League\Glide\Server::class, function() {
+            if (!file_exists(self::BASEDIR . 'content/images')) {
+                mkdir(self::BASEDIR . 'content/images');
+            }
+            if (!file_exists(self::BASEDIR . 'content/cache')) {
+                mkdir(self::BASEDIR . 'content/cache');
+            }
             $server = \League\Glide\ServerFactory::create([
                 'source' =>  self::BASEDIR . 'content/images',
                 'cache' =>  self::BASEDIR . 'content/cache',
