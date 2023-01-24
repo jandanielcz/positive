@@ -29,6 +29,7 @@ class AddController
         $response->getBody()->write(
             $this->engine->render('add', [
                 'configuration' => $this->configuration,
+                'identity' => $this->identity
             ])
         );
         return $response;
@@ -39,6 +40,9 @@ class AddController
         if (!$this->identity->isLoggedIn()) {
             $response = new Response();
             return $response->withStatus(302)->withAddedHeader('Location', '/login');
+        }
+        if ($request->getParsedBody()['csrfToken'] !== $this->identity->csrfToken) {
+            return (new Response)->withStatus(302)->withAddedHeader('Location', '/add?msg=csrfIssue');
         }
 
         $text = $request->getParsedBody()['text'];
