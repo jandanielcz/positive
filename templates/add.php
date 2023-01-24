@@ -2,7 +2,7 @@
     $this->layout('layout', ['configuration' => $configuration, 'showLogout' => true])
 ?>
 
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     <?php //TODO: CSRF ?>
     <label for="day">Day</label>
     <input type="date" name="day" id="day" value="<?= date('Y-m-d') ?>">

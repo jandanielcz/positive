@@ -6,6 +6,7 @@ use Laminas\Diactoros\ServerRequest;
 use Laminas\Diactoros\ServerRequestFactory;
 use League\Container\Container;
 use League\Container\ReflectionContainer;
+use League\Glide\Responses\PsrResponseFactory;
 
 class ContainerBuilder
 {
@@ -41,6 +42,7 @@ class ContainerBuilder
         });
         $c->add(\Jandanielcz\Positive\Posts::class)
             ->addArgument(self::BASEDIR . 'content/posts.listofjsons')
+            ->addArgument(self::BASEDIR . 'content/images')
             ->addArgument($c->get(\League\Glide\Urls\UrlBuilder::class));
         $c->add(\League\Glide\Server::class, function() {
             $server = \League\Glide\ServerFactory::create([
@@ -49,7 +51,7 @@ class ContainerBuilder
             ]);
 
             $server->setResponseFactory(
-                new League\Glide\Responses\PsrResponseFactory(
+                new PsrResponseFactory(
                     new \Laminas\Diactoros\Response(), function ($stream) {
                         return new \Laminas\Diactoros\Stream($stream);
                     }

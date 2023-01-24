@@ -35,6 +35,11 @@ $router->map('GET', '/add',
         $controller = $container->get(\Jandanielcz\Positive\AddController::class);
         return $controller->add($request);
     });
+$router->map('POST', '/add',
+    function (ServerRequestInterface $request) use ($container): ResponseInterface  {
+        $controller = $container->get(\Jandanielcz\Positive\AddController::class);
+        return $controller->handleAdd($request);
+    });
 $router->map('GET', '/login',
     function (ServerRequestInterface $request) use ($container): ResponseInterface  {
         $controller = $container->get(\Jandanielcz\Positive\LoginController::class);
