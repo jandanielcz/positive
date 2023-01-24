@@ -39,6 +39,18 @@ class IndexController
         return $response;
     }
 
+    public function error404(ServerRequestInterface $request): ResponseInterface
+    {
+        $response = new Response();
+
+        $response->getBody()->write(
+            $this->engine->render('error404', [
+                'configuration' => $this->configuration,
+            ])
+        );
+        return $response->withStatus(404);
+    }
+
     public function single(ServerRequestInterface $request): ResponseInterface
     {
         $path = $request->getUri()->getPath();

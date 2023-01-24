@@ -66,7 +66,13 @@ $router->map('GET', '/',
         return $controller->index($request);
     });
 
-$response = $router->dispatch($request);
+try {
+    $response = $router->dispatch($request);
+} catch (\League\Route\Http\Exception\NotFoundException $e) {
+    $controller = $container->get(\Jandanielcz\Positive\IndexController::class);
+    $response = $controller->error404($request);
+}
+
 
 /** @var \Laminas\HttpHandlerRunner\Emitter\SapiEmitter $emitter */
 $emitter = $container->get(\Laminas\HttpHandlerRunner\Emitter\SapiStreamEmitter::class);
