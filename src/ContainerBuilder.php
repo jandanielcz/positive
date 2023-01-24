@@ -63,6 +63,10 @@ class ContainerBuilder
             return ServerRequestFactory::fromGlobals($_SERVER, $_GET, $_POST, $_FILES);
         });
 
+        $c->add(Identity::class, function() {
+            return IdentityBuilder::build();
+        });
+
         return $c;
     }
 }

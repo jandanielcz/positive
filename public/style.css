@@ -111,3 +111,21 @@ figure {
     max-width: 100%;
     max-height: 100%;
 }
+
+form {
+    max-width: 640px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-template-rows: 40px 40px 40px 40px;
+    gap: 1rem;
+}
+
+form label {
+    text-align: right;
+    line-height: 40px;
+}
+
+form input[type="submit"] {
+    grid-column: 2/3;
+}

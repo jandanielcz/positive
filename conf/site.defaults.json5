@@ -5,6 +5,10 @@
     subtitle: 'Be calm.',
     glidekey: null,
     author: 'Bob',
-    authorEmail: 'bob@example.com'
+    authorEmail: 'bob@example.com',
+    user: {
+      login: 'User',
+      password: null
+    }
   }
 }

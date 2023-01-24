@@ -30,6 +30,26 @@ $router->map('GET', '/atom',
         $controller = $container->get(\Jandanielcz\Positive\FeedController::class);
         return $controller->atom($request);
     });
+$router->map('GET', '/add',
+    function (ServerRequestInterface $request) use ($container): ResponseInterface  {
+        $controller = $container->get(\Jandanielcz\Positive\AddController::class);
+        return $controller->add($request);
+    });
+$router->map('GET', '/login',
+    function (ServerRequestInterface $request) use ($container): ResponseInterface  {
+        $controller = $container->get(\Jandanielcz\Positive\LoginController::class);
+        return $controller->login($request);
+    });
+$router->map('POST', '/login',
+    function (ServerRequestInterface $request) use ($container): ResponseInterface  {
+        $controller = $container->get(\Jandanielcz\Positive\LoginController::class);
+        return $controller->handleLogin($request);
+    });
+$router->map('GET', '/logout',
+    function (ServerRequestInterface $request) use ($container): ResponseInterface  {
+        $controller = $container->get(\Jandanielcz\Positive\LoginController::class);
+        return $controller->handleLogout($request);
+    });
 $router->map('GET', '/',
     function (ServerRequestInterface $request) use ($container): ResponseInterface  {
         $controller = $container->get(\Jandanielcz\Positive\IndexController::class);
