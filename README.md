@@ -29,3 +29,15 @@ php -r "echo password_hash('[YOUR_PASSWORD_HERE]', PASSWORD_DEFAULT);"
 
 * If you change pagination size, it will change URLs in feeds.
 * Posts are paginated like in a book: page 1 is older than 2.
+
+### Caching
+
+Image manipulation library Glide uses caching and after every insert
+user is redirected to single page (not used publicly) to create images
+in cache, so audience can get their picture faster.
+If you need to warm up cache earlier (for example after adding content manually)
+you can run:
+~~~bash
+php warm-up-chache.php
+~~~
+This will recreate all sizes, for all images not already in cache in jpg, avif, webp.
