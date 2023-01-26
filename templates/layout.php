@@ -16,13 +16,23 @@
             document.querySelector('body').removeEventListener('keydown', hideModalEsc)
         }
 
+        const unFillModal = (modal) => {
+            modal.querySelector('source[type="image/avif"]').setAttribute('srcset', '')
+            modal.querySelector('source[type="image/webp"]').setAttribute('srcset', '')
+            modal.querySelector('img').setAttribute('src', '')
+        }
+
         const hideModal = (event) => {
-            document.getElementById('M').classList.add('hidden')
+            const modal = document.getElementById('M')
+            modal.classList.add('hidden')
+            unFillModal(modal)
             removeListeners()
         }
         const hideModalEsc = (event) => {
             if (event.keyCode === 27) {
-                document.getElementById('M').classList.add('hidden')
+                const modal = document.getElementById('M')
+                modal.classList.add('hidden')
+                unFillModal(modal)
                 removeListeners()
             }
         }
@@ -32,6 +42,7 @@
             modal.querySelector('source[type="image/webp"]').setAttribute('srcset', img.getAttribute('data-webp'))
             modal.querySelector('img').setAttribute('src', img.getAttribute('data-jpg'))
         }
+
 
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('body').addEventListener('click', (event) => {
