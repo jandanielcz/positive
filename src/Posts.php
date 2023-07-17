@@ -27,6 +27,7 @@ class Posts
     public function loadAll(?int $page = null): array
     {
         $c = file($this->pathToList);
+        $c = array_reverse($c);
         if ($page === null) {
             return array_map([Post::class, 'fromJson'], $c);
         }

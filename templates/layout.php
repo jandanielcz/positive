@@ -55,6 +55,12 @@
                 }
             })
         })
+
+
+
+
+
+
     </script>
 </head>
 <body>
@@ -68,17 +74,16 @@
             <h2>
                 <?= $configuration->get('site::subtitle') ?>
             </h2>
+            <nav>
+                <span><a href="/add">add</a></span>
+                <span><a href="/atom">atom</a>/<a href="/rss2">rss2</a></span>
+                <span><a href="https://github.com/jandanielcz/positive">source</a></span>
+                <?php if(isset($showLogout) && $showLogout): ?>
+                    <span><a href="/logout">logout</a></span>
+                <?php endif; ?>
+            </nav>
         </header>
-        <nav>
-            <span><a href="/add">add content</a></span>
-            <span><a href="/atom">atom</a>/<a href="/rss2">rss2</a></span>
-            <span><a href="https://github.com/jandanielcz/positive">opensourced</a></span>
-            <?php if(isset($showLogout) && $showLogout): ?>
-                <span><a href="/logout">logout</a></span>
-            <?php endif; ?>
-        </nav>
 
-        <?= $this->insert('pagination', ['pagination' => $pagination ?? null]) ?>
 
         <section>
             <?=$this->section('content')?>

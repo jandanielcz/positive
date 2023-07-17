@@ -23,7 +23,7 @@ class IndexController
         if (isset($request->getQueryParams()['page'])) {
             $page = (int)$request->getQueryParams()['page'];
         } else {
-            $page = $pagination['max'];
+            $page = 1;
         }
         $response = new Response();
         $pagination['current'] = $page;

@@ -1,13 +1,15 @@
 :root {
     --fontColor: hsl(33, 56%, 15%);
     --fontHiColor: hsl(33, 56%, 25%);
+    --bgColor: hsla(46, 100%, 90%, 1);
 }
 
 body {
     margin: 0;
     font-family: 'Book Antiqua', 'Palatino Linotype', Palatino, serif;
     color: var(--fontColor);
-    background-color: hsl(108, 20%, 70%);
+    background: var(--bgColor) url("nnnoise.svg") repeat;
+
 }
 
 a {
@@ -21,16 +23,23 @@ a:hover {
     color: var(--fontHiColor);
 }
 
+header {
+    justify-self: center;
+    align-self: center;
+}
+
 header h1 {
     font-weight: 400;
     font-size: 4rem;
+    line-height: 8rem;
     text-align: center;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 header h2 {
     font-weight: 400;
     font-size: 1rem;
+    line-height: 2rem;
     text-transform: uppercase;
     letter-spacing: .1rem;
     text-align: center;
@@ -49,39 +58,69 @@ nav span {
 }
 
 section {
-    max-width: 640px;
-    margin: 2rem auto;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, 480px);
+    justify-content: center;
+}
+
+@media all and (min-width: 640px) {
+    section {
+        grid-template-columns: repeat(auto-fill, 640px);
+    }
 }
 
 article {
+    margin-top: 4rem;
+    max-width: 100%;
     display: grid;
-    grid-template-rows: auto auto auto;
-    grid-template-columns: auto;
-    align-items: baseline;
-    margin: 3rem 0 4rem;
+    grid-template-rows: 1rem 6rem auto;
 }
+
+
 
 article p {
     margin: 0;
 }
 
+article aside {
+}
+
 article aside p {
-    align-self: baseline;
+    line-height: 1rem;
 }
 
 article > p {
     font-size: 2rem;
     line-height: 2.6rem;
+    max-height: 5.2rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
-figure {
+article .f {
 
+}
+
+picture {
+    display: flex;
+    min-height: 0;
+    justify-content: left;
     cursor: pointer;
-    margin: 1rem 0 0 0;
+    aspect-ratio: 1;
+
 }
 
-figure img {
+picture img {
+    flex-shrink: initial;
+    aspect-ratio: 1;
     max-width: 100%;
+}
+
+#W {
+    min-width: 480px;
 }
 
 #M {
@@ -138,16 +177,25 @@ form input[type="submit"] {
 }
 
 .pagination {
-    max-width: 640px;
-    margin: 1rem auto;
-    padding: .5rem 0;
-    border-bottom: 1px solid var(--fontColor);
-    border-top: 1px solid var(--fontColor);
+    margin: 5rem auto 4rem;
+    max-width: 60vw;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .pagination a {
-    display: inline-block;
-    padding: .2rem .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--fontColor);
+    color: var(--bgColor);
+    min-width: 3rem;
+    min-height: 3rem;
+}
+
+.pagination a:hover {
+    background-color: var(--fontHiColor);
 }
 
 .pagination a.current {

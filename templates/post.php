@@ -16,20 +16,18 @@ $full = $configuration->get('site::picture::sizes::full');
     <p>
         <?= $this->e($post->text) ?>
     </p>
-    <figure>
 
-        <picture>
-            <source media="(max-width: 480px)" type="image/avif" srcset="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'avif', 'q' => 90, 'w' => $small]) ?>" />
-            <source media="(max-width: 480px)" type="image/webp" srcset="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'webp', 'q' => 90, 'w' => $small]) ?>" />
-            <source media="(max-width: 480px)" srcset="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'jpg', 'q' => 90, 'w' => $small]) ?>" />
-            <source type="image/avif" srcset="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'avif', 'q' => 90, 'w' => $list]) ?>" />
-            <source type="image/webp" srcset="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'webp', 'q' => 90, 'w' => $list]) ?>" />
-            <img src="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'w' => $list, 'q' => 90]) ?>" alt="Photo" loading="lazy"
-                data-avif="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'avif', 'q' => 90, 'w' => $full]) ?>"
-                data-webp="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'webp', 'q' => 90, 'w' => $full]) ?>"
-                data-jpg="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'jpg', 'q' => 90, 'w' => $full]) ?>"
-            >
-        </picture>
+    <picture>
+        <source media="(max-width: 480px)" type="image/avif" srcset="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'avif', 'q' => 90, 'w' => $small]) ?>" />
+        <source media="(max-width: 480px)" type="image/webp" srcset="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'webp', 'q' => 90, 'w' => $small]) ?>" />
+        <source media="(max-width: 480px)" srcset="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'jpg', 'q' => 90, 'w' => $small]) ?>" />
+        <source type="image/avif" srcset="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'avif', 'q' => 90, 'w' => $list]) ?>" />
+        <source type="image/webp" srcset="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'webp', 'q' => 90, 'w' => $list]) ?>" />
+        <img src="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'w' => $list, 'q' => 90]) ?>" alt="Photo" loading="lazy"
+            data-avif="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'avif', 'q' => 90, 'w' => $full]) ?>"
+            data-webp="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'webp', 'q' => 90, 'w' => $full]) ?>"
+            data-jpg="<?= $urlBuilder->getUrl($post->picture, ['fit' => 'max', 'fm' => 'jpg', 'q' => 90, 'w' => $full]) ?>"
+        >
+    </picture>
 
-    </figure>
 </article>

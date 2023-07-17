@@ -1,6 +1,5 @@
 <?php if($pagination): ?>
     <div class="pagination">
-        <span>Page: </span>
         <?php for($i = 1; $i <= $pagination['max']; $i++): ?>
             <a href="/?page=<?= $i ?>" <?php if($pagination['current'] === $i): ?>class="current"<?php endif; ?>><?= $i ?></a>
         <?php endfor; ?>
