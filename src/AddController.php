@@ -49,10 +49,9 @@ class AddController
         $day = \DateTimeImmutable::createFromFormat('Y-m-d', $request->getParsedBody()['day']);
         /** @var UploadedFileInterface $picture */
         $picture = $request->getUploadedFiles()['picture'];
+        
+        $this->posts->add($day, $text, $picture);
 
-
-        $picturePath = $this->posts->add($day, $text, $picture);
-
-        return (new Response)->withStatus(302)->withAddedHeader('Location', '/single/'.$picturePath);
+        return (new Response)->withStatus(302)->withAddedHeader('Location', '/');
     }
 }

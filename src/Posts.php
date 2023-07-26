@@ -29,11 +29,11 @@ class Posts
         $c = file($this->pathToList);
         $c = array_reverse($c);
         if ($page === null) {
-            return array_map([Post::class, 'fromJson'], $c);
+            return Post::fromJsonLines($c);
         }
         $pageSize = (int)$this->configuration->get('site::pageSize');
         $c = array_slice($c, ($page - 1) * $pageSize, $pageSize);
-        return array_map([Post::class, 'fromJson'], $c);
+        return Post::fromJsonLines($c);
     }
 
     public function loadByPicture(string $picturePath): ?Post
